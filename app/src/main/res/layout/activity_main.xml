@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/drawerLayout"
+    android:background="@color/main_back_ground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:openDrawer="start"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:fitsSystemWindows="true">
+
+<com.google.android.material.appbar.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="Gunabati Shop"
+        app:titleTextColor="@color/grey_200"
+        app:navigationIcon="@drawable/ic_menu_black_24dp"
+        app:navigationIconTint="@color/grey_200"
+        style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
+        android:background="@color/toolbar_color"
+        android:elevation="0dp" />
+
+</com.google.android.material.appbar.AppBarLayout>
+
+<!-- Screen content -->
+<!-- Use app:layout_behavior="@string/appbar_scrolling_view_behavior" to fit below top app bar -->
+<FrameLayout
+    android:layout_marginTop="?actionBarSize"
+    android:id="@+id/frame_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+<com.google.android.material.navigation.NavigationView
+    android:layout_marginTop="15dp"
+    android:id="@+id/navigationView"
+    android:visibility="visible"
+    app:menu="@menu/navigation_drawer"
+    android:background="@color/nav_back_ground"
+    app:itemTextColor="@color/menu_item_text_color"
+    app:itemIconTint="@color/menu_item_text_color"
+    app:headerLayout="@layout/header_navigation_drawer"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="start" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

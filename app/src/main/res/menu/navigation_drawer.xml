@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<group
+android:id="@+id/group1"
+android:checkableBehavior="single">
+<item
+    android:id="@+id/menu_browser"
+    android:checked="true"
+    android:icon="@drawable/ic_home_black_24dp"
+    android:title="Home" />
+<item
+    android:id="@+id/menu_about"
+    android:actionLayout="@layout/mode_switch"
+    android:icon="@drawable/ic_info_black_24dp"
+    android:title="About us" />
+
+</group>
+
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+<!--        <item-->
+<!--            android:id="@+id/subtitle"-->
+<!--            android:title="Others">-->
+<!--            <menu>-->
+
+
+                <item
+                    android:id="@+id/menu_mode"
+                    android:icon="@drawable/ic_night_mode"
+                    app:actionLayout="@layout/mode_switch"
+                    android:title="Dark Mode" />
+
+                <item
+                    android:id="@+id/menu_youtube"
+                    android:icon="@drawable/ic_youtube"
+                    android:title="Watch on Youtube" />
+                <item
+                    android:id="@+id/menu_fb_page"
+                    android:icon="@drawable/ic_facebook"
+                    android:title="Visit our Facebook page" />
+                <item
+                    android:id="@+id/menu_fb_group"
+                    android:icon="@drawable/ic_facebook_grp"
+                    android:title="Join with our FB group" />
+
+                <item
+                    android:id="@+id/menu_whatsapp"
+                    android:icon="@drawable/ic_whatsapp"
+                    android:title="Contact on WhatsApp" />
+                <item
+                    android:id="@+id/menu_feedback"
+                    android:icon="@drawable/ic_feedback"
+                    android:title="Send a Feedback" />
+                <item
+                    android:id="@+id/menu_share_app"
+                    android:icon="@drawable/ic_share_app"
+                    android:title="Share App" />
+                <item
+                    android:id="@+id/menu_rating"
+                    android:icon="@drawable/ic_rating"
+                    android:title="Rate our App" />
+                <item
+                    android:id="@+id/menu_policy"
+                    android:icon="@drawable/ic_policy"
+                    android:title="Privacy and Policy" />
+
+                <item
+                    android:id="@+id/menu_exit"
+                    android:icon="@drawable/ic_exit_to_app_black_24dp"
+                    android:title="Exit" />
+
+<!--            </menu>-->
+
+<!--        </item>-->
+    </group>
+</menu>

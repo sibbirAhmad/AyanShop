@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/main_back_ground"
+    tools:context=".AboutFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            app:cardCornerRadius="5dp"
+            android:layout_margin="5dp"
+            app:cardElevation="5dp"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/aboutHeaderRL"
+                android:background="@drawable/ic_gunabati_banner"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <LinearLayout
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="গুণবতী শপ"
+                        android:textColor="@color/menu_item_text_color"
+                        android:textSize="65sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/kalpona_unicode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                    <TextView
+                        android:text="একের ভিতর সব"
+                        android:textColor="@color/teal_500"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/kalpona_unicode"
+                        android:textSize="27sp"
+                        android:layout_marginTop="-30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+
+                    <in.codeshuffle.typewriterview.TypeWriterView
+                        android:id="@+id/typeWriter"
+                        android:text="www.GunabatiShop.com"
+                        android:textColor="@color/teal_800"
+                        android:textSize="40sp"
+                        android:layout_marginTop="-10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </in.codeshuffle.typewriterview.TypeWriterView>
+                </LinearLayout>
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="আমাদের সম্পর্কেঃ"
+                android:fontFamily="@font/kalpona_unicode"
+                android:textColor="@color/menu_item_text_color"
+                android:textSize="24dp"
+                android:layout_marginLeft="20dp">
+
+            </TextView>
+            <TextView
+                android:text="@string/about_us"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="10dp"
+                android:textSize="17sp"
+                android:textColor="@color/menu_item_text_color"
+                android:fontFamily="@font/kalpurush"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="3"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="3dp"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/callBTN"
+                android:layout_gravity="center"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:drawableTint="@color/menu_item_text_color"
+                android:textColor="@color/menu_item_text_color"
+                android:fontFamily="@font/double_bubble_shadow"
+                android:drawableLeft="@drawable/ic_call_black_24dp"
+
+                android:text="Call"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </Button>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="3dp"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/emailBTN"
+                android:layout_gravity="center"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:drawableTint="@color/menu_item_text_color"
+                android:textColor="@color/menu_item_text_color"
+                android:fontFamily="@font/double_bubble_shadow"
+                android:drawableLeft="@drawable/ic_contact_mail_black_24dp"
+                android:text="Mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </Button>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="3dp"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/mapBTN"
+                android:layout_gravity="center"
+                android:drawableTint="@color/menu_item_text_color"
+                android:textColor="@color/menu_item_text_color"
+                android:fontFamily="@font/double_bubble_shadow"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:drawableLeft="@drawable/ic_location_on_black_24dp"
+                android:text="Map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </Button>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</RelativeLayout>

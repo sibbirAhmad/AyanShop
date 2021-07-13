@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="nav_back_ground">#232222</color>
+    <color name="main_back_ground">#232222</color>
+    <color name="menu_item_text_color">#E8E1E1</color>
+
+    <color name="toolbar_color">@android:color/transparent</color>
+    <color name="progress_tint">#F8F8CA</color>
+
+
+
+
+</resources>

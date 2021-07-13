@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".BrowserFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<!--        TODO : WebView-->
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </WebView>
+<!--        TODO : WebLoader-->
+        <RelativeLayout
+            android:id="@+id/webLoader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_marginTop="-6dp"
+                android:progressTint="@color/progress_tint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </ProgressBar>
+        </RelativeLayout>
+<!--        TODO : ErrorView-->
+        <RelativeLayout
+            android:id="@+id/errorView"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:text=" No Internet"
+                android:layout_centerHorizontal="true"
+                android:textSize="18sp"
+                android:drawableTint="@color/menu_item_text_color"
+                android:drawableLeft="@drawable/ic_sentiment_dissatisfied_black_24dp"
+                android:textColor="@color/menu_item_text_color"
+                android:fontFamily="@font/double_bubble_shadow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieError"
+                app:lottie_rawRes="@raw/lottie_connecting"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true"
+                android:layout_width="match_parent"
+                android:layout_height="350dp">
+
+            </com.airbnb.lottie.LottieAnimationView>
+           <LinearLayout
+               android:layout_centerHorizontal="true"
+               android:layout_below="@+id/lottieError"
+               android:layout_margin="10dp"
+               android:weightSum="2"
+               android:orientation="horizontal"
+               android:gravity="center"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+              <LinearLayout
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  >
+                  <Button
+                      android:id="@+id/tryAgainBtn"
+                      android:layout_centerHorizontal="true"
+                      android:layout_gravity="center"
+                      style="@style/Widget.MaterialComponents.Button.TextButton"
+                      android:textColor="@color/main_back_ground"
+                      android:text="Try Again"
+                      android:backgroundTint="@color/menu_item_text_color"
+                      android:paddingLeft="10dp"
+                      android:paddingRight="15dp"
+                      android:textAllCaps="false"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content">
+
+                  </Button>
+              </LinearLayout>
+
+
+               <LinearLayout
+                   android:layout_marginLeft="5dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+                   <Button
+                       android:id="@+id/openBrowser"
+                       android:layout_centerHorizontal="true"
+                       android:layout_gravity="center"
+                       style="@style/Widget.MaterialComponents.Button.TextButton"
+                       android:textColor="@color/main_back_ground"
+                       android:text="Open Browser"
+                       android:paddingLeft="10dp"
+                       android:paddingRight="15dp"
+                       android:textAllCaps="false"
+                       android:backgroundTint="@color/menu_item_text_color"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content">
+
+                   </Button>
+
+               </LinearLayout>
+
+           </LinearLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
