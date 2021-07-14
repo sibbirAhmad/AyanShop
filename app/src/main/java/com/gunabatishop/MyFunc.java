@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
+import soft.insafservice.apphelper.MyDS;
+
 public class MyFunc {
 
     public static SharedPreferences sp;
@@ -41,6 +43,7 @@ public class MyFunc {
             MyFunc.putSP(SpKey.isNigh,"0");
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
+
     }
 
     public static void openLinkWithFbOrBrowser(Context context,String url){
@@ -58,7 +61,7 @@ public class MyFunc {
 
     public static void sendMail(Context context,String email) {
         try {
-            context.startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse(email)));
+            context.startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"+email)));
         }catch (Exception e){
             Toast.makeText(context, "No Email App Available", Toast.LENGTH_LONG).show();
         }

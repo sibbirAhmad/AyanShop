@@ -1,20 +1,10 @@
 package com.gunabatishop;
 
-import android.Manifest;
-import android.annotation.TargetApi;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
-import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -26,21 +16,23 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import in.codeshuffle.typewriterview.TypeWriterView;
+import soft.insafservice.apphelper.MyDS;
 
 
 public class SplashActivity extends AppCompatActivity {
     //private int SPLASH_TIMER = 1500;
     private int SPLASH_TIMER = 2000;
     public static boolean isPlayServiceAvailable = true;
-    String TAG  = "SplashActivity ";
+    String TAG = "SplashActivity ";
     String permissionOkKey = "permissionOkKey";
-   TypeWriterView typeWriterView;
-   TextView sloganTv;
+    TypeWriterView typeWriterView;
+    TextView sloganTv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         MyFunc.initSP(SplashActivity.this);
-        if(MyFunc.getSP(SpKey.isNigh,"0").contains("1")){
-            MyFunc.modeManage(SplashActivity.this,"1");
+        if (MyFunc.getSP(SpKey.isNigh, "0").contains("1")) {
+            MyFunc.modeManage(SplashActivity.this, "1");
         }
         super.onCreate(savedInstanceState);
         //------------------------------------------------------------------------------------> todo : Making Full Screen
@@ -55,8 +47,21 @@ public class SplashActivity extends AppCompatActivity {
         Animation fromDown = AnimationUtils.loadAnimation(this, R.anim.came_from_down);
         //ImageView ourIcon = findViewById(R.id.load_image);
         ImageView text = findViewById(R.id.image_title);
-        typeWriterView =  findViewById(R.id.titleTV);
-        sloganTv =  findViewById(R.id.sloganTv);
+        typeWriterView = findViewById(R.id.titleTV);
+        sloganTv = findViewById(R.id.sloganTv);
+        String key = "78EF5DA8A2DC67FD6BD1F81722B1CD32CE2EA487AF9" +
+                "1CFB249B1F5F57E9D610A407DDBCE57D629BC00C261DA04FDC067C27" +
+                "86C55D3802BF38A7A3E54900F95DACEBCADDD0F84FBF3BF6D466D2BCC6EC8C634F" +
+                "919026BDBDE2B3AE47D323ABACF";
+        if(MyFunc.getSP(SpKey.CONTACT_EMAIL,"")==""){
+            Toast.makeText(this, "Saving data", Toast.LENGTH_SHORT).show();
+            //Temp Creating data
+            String json = AppManage.exCreateData();
+            String dd = MyDS.dx(json,null);
+            new AppManage().svData(dd);
+        }
+
+
 
 //        typeWriterView.setDelay(1);
 //

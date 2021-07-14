@@ -39,4 +39,6 @@ dependencies {
     implementation "androidx.webkit:webkit:1.4.0"
 
     implementation 'in.codeshuffle:typewriterview:1.1.0'
+
+        implementation 'com.github.sibbirAhmad:AppHelper:v1.0.1'
 }

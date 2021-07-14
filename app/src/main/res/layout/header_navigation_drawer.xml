@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:layout_width="match_parent"
-    android:layout_height="170dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/banner_3"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:src="@drawable/banner_4"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="185dp">
+
+    </ImageView>
 
 <!--<TextView-->
 <!--android:layout_width="wrap_content"-->

@@ -87,12 +87,7 @@ public class MainActivity extends AppCompatActivity {
                         MyFunc.openLinkWithFbOrBrowser(MainActivity.this,SpKey.WHATS_APP);
                         return true;
                     case R.id.menu_feedback:
-                        try {
-                            startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"+SpKey.CONTACT_EMAIL)));
-                        }catch (Exception e){
-                            Log.e(TAG, "onNavigationItemSelected: ", e);
-                            Toast.makeText(MainActivity.this, "No Email App Available", Toast.LENGTH_LONG).show();
-                        }
+                        MyFunc.sendMail(MainActivity.this,MyFunc.getSP(SpKey.CONTACT_EMAIL,""));
                         return true;
                     case R.id.menu_share_app:
                         MyFunc.shareText(MainActivity.this,"Share with..","GunabatiShop app",SpKey.APP_APP_LINK);

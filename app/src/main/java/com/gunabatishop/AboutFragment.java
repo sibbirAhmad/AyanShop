@@ -58,9 +58,8 @@ public class AboutFragment extends Fragment {
       callBTN.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              String phone = "01832880015";
               Intent callIntent = new Intent(Intent.ACTION_DIAL);
-              callIntent.setData(Uri.parse("tel:" + phone));
+              callIntent.setData(Uri.parse("tel:" + MyFunc.getSP(SpKey.CONTACT_NUMBER,"")));
               startActivity(callIntent);
 
           }
@@ -103,7 +102,7 @@ public class AboutFragment extends Fragment {
 
     public void sendMail() {
         try {
-            startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:to@gmail.com")));
+            startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse(SpKey.CONTACT_EMAIL)));
         }catch (Exception e){
             Toast.makeText(getContext(), "No Email App Available", Toast.LENGTH_LONG).show();
         }
