@@ -25,6 +25,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
+import soft.insafservice.apphelper.MyFunc;
+
+import static com.gunabatishop.AppManage.isAppOk;
 import static com.gunabatishop.BrowserFragment.browserFragmentInstance;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         MyFunc.initSP(MainActivity.this);
+        if(!isAppOk){
+            MyFunc.securityError(MainActivity.this,null,null);
+
+        }
+
         //checkNightMode();
         super.onCreate(savedInstanceState);
 
@@ -87,10 +95,14 @@ public class MainActivity extends AppCompatActivity {
                         MyFunc.openLinkWithFbOrBrowser(MainActivity.this,SpKey.WHATS_APP);
                         return true;
                     case R.id.menu_feedback:
-                        MyFunc.sendMail(MainActivity.this,MyFunc.getSP(SpKey.CONTACT_EMAIL,""));
+                        try {
+                            startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"+MyFunc.getSP(SpKey.CONTACT_EMAIL,""))));
+                        }catch (Exception e){
+                            Toast.makeText(MainActivity.this, "No Email App Available", Toast.LENGTH_LONG).show();
+                        }
                         return true;
                     case R.id.menu_share_app:
-                        MyFunc.shareText(MainActivity.this,"Share with..","GunabatiShop app",SpKey.APP_APP_LINK);
+                        MyFunc.shareText(MainActivity.this,"Share with..","Download GunabatiShop app",SpKey.APP_APP_LINK);
                         return true;
                     case R.id.menu_policy:
                         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);

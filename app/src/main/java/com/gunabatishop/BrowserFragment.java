@@ -25,13 +25,17 @@ import android.widget.Toast;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import soft.insafservice.apphelper.MyFunc;
+
 
 public class BrowserFragment extends Fragment {
 
     public static BrowserFragment browserFragmentInstance;
-    public static BrowserFragment getInstance(){
+
+    public static BrowserFragment getInstance() {
         return browserFragmentInstance;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,12 +45,12 @@ public class BrowserFragment extends Fragment {
 
     View rootView;
     WebView webView;
-    RelativeLayout webLoader,errorView;
+    RelativeLayout webLoader, errorView;
     ProgressBar progressBar;
-    Button tryAgainBtn,openBrowser;
+    Button tryAgainBtn, openBrowser;
     String runningUrl;
-    String webUrl = "http://gunabatishop.com";
-    //String webUrl = "http://bike.c1.biz";
+    String webUrl = null;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,13 +64,21 @@ public class BrowserFragment extends Fragment {
         tryAgainBtn = rootView.findViewById(R.id.tryAgainBtn);
         openBrowser = rootView.findViewById(R.id.openBrowser);
         browserFragmentInstance = this;
+
+        webUrl = MyFunc.getSP(SpKey.APP_URL, "");
+
+        //------------If ok
+        if (webUrl == null || webUrl == "") {
+            MyFunc.securityError(getContext(),null,null);
+        }
+
         initWebView();
         loadUrl(webUrl);
 
         openBrowser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyFunc.openLinkWithFbOrBrowser(getContext(),runningUrl);
+                MyFunc.openLinkWithFbOrBrowser(getContext(), runningUrl);
             }
         });
         tryAgainBtn.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +93,7 @@ public class BrowserFragment extends Fragment {
 
     String TAG = "BrowserFragment";
 
-    private void initWebView(){
+    private void initWebView() {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setPluginState(WebSettings.PluginState.ON);
         webView.getSettings().setBuiltInZoomControls(true);
@@ -90,14 +102,13 @@ public class BrowserFragment extends Fragment {
         webView.getSettings().setLoadWithOverviewMode(true);
 
         //----- todo : Check if Dark mode activated
-        if(MyFunc.getSP(SpKey.isNigh,"0").contains("1")){
+        if (MyFunc.getSP(SpKey.isNigh, "0").contains("1")) {
             try {
                 WebSettingsCompat.setForceDark(webView.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
-            }catch (Exception e){
+            } catch (Exception e) {
 
             }
         }
-
 
 
         CookieSyncManager.createInstance(getContext());
@@ -107,7 +118,6 @@ public class BrowserFragment extends Fragment {
         webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
 
 
-
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -115,6 +125,7 @@ public class BrowserFragment extends Fragment {
                 runningUrl = url;
                 hideError();
             }
+
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Log.i(TAG, "Processing webview url click...");
                 view.loadUrl(url);
@@ -142,46 +153,52 @@ public class BrowserFragment extends Fragment {
 
         webView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
-                Log.d(TAG, "onProgressChanged: "+progress);
-                if(progress<100 && webLoader.getVisibility()==View.GONE){
+                Log.d(TAG, "onProgressChanged: " + progress);
+                if (progress < 100 && webLoader.getVisibility() == View.GONE) {
                     webLoader.setVisibility(View.VISIBLE);
                 }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    progressBar.setProgress(progress,true);
-                }else {
+                    progressBar.setProgress(progress, true);
+                } else {
                     progressBar.setProgress(progress);
                 }
-                if(progress>=100){
+                if (progress >= 100) {
                     webLoader.setVisibility(View.GONE);
                 }
             }
         });
     }
 
-    private void loadUrl(String url){
+    private void loadUrl(String url) {
         webView.loadUrl(url);
     }
-    private void hideLoader(){
+
+    private void hideLoader() {
 
     }
-    private void showLoader(){
+
+    private void showLoader() {
     }
-    private void hideError(){
+
+    private void hideError() {
         errorView.setVisibility(View.GONE);
         webView.setVisibility(View.VISIBLE);
     }
-    private void showError(){
+
+    private void showError() {
         webView.setVisibility(View.GONE);
         errorView.setVisibility(View.VISIBLE);
 
     }
-    public void pageRefresh(){
+
+    public void pageRefresh() {
         loadUrl(runningUrl);
     }
-    public void backWebView(){
-        if(webView.canGoBack()){
+
+    public void backWebView() {
+        if (webView.canGoBack()) {
             webView.goBack();
-        }else {
+        } else {
             //Toast.makeText(getContext(), "No Back Page", Toast.LENGTH_SHORT).show();
             MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getContext());
             builder.setTitle("Do you want to exit?");
@@ -201,11 +218,13 @@ public class BrowserFragment extends Fragment {
         }
 
     }
-    public void goHome(){
+
+    public void goHome() {
         loadUrl(webUrl);
     }
-    public void shareUrl(){
-        MyFunc.shareText(getContext(),"Share With ","",runningUrl);
+
+    public void shareUrl() {
+        MyFunc.shareText(getContext(), "Share With ", "", runningUrl);
     }
 
 

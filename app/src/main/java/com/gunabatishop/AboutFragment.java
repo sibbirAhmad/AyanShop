@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import in.codeshuffle.typewriterview.TypeWriterView;
+import soft.insafservice.apphelper.MyFunc;
 
 
 public class AboutFragment extends Fragment {
@@ -59,7 +60,7 @@ public class AboutFragment extends Fragment {
           @Override
           public void onClick(View v) {
               Intent callIntent = new Intent(Intent.ACTION_DIAL);
-              callIntent.setData(Uri.parse("tel:" + MyFunc.getSP(SpKey.CONTACT_NUMBER,"")));
+              callIntent.setData(Uri.parse("tel:" + MyFunc.getSP(SpKey.CONTACT_NUMBER_KEY,"")));
               startActivity(callIntent);
 
           }
@@ -74,7 +75,7 @@ public class AboutFragment extends Fragment {
           @Override
           public void onClick(View v) {
 
-              String uri = "https://maps.app.goo.gl/RSyxVMA9a1EphVRE7";
+              String uri = MyFunc.getSP(SpKey.MAP_URL,"");
               Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
               intent.setPackage("com.google.android.apps.maps");
               try
@@ -102,7 +103,7 @@ public class AboutFragment extends Fragment {
 
     public void sendMail() {
         try {
-            startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse(SpKey.CONTACT_EMAIL)));
+            startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"+MyFunc.getSP(SpKey.CONTACT_EMAIL,""))));
         }catch (Exception e){
             Toast.makeText(getContext(), "No Email App Available", Toast.LENGTH_LONG).show();
         }

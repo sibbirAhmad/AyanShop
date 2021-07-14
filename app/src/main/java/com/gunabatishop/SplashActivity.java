@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import in.codeshuffle.typewriterview.TypeWriterView;
 import soft.insafservice.apphelper.MyDS;
+import soft.insafservice.apphelper.MyFunc;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -34,6 +35,8 @@ public class SplashActivity extends AppCompatActivity {
         if (MyFunc.getSP(SpKey.isNigh, "0").contains("1")) {
             MyFunc.modeManage(SplashActivity.this, "1");
         }
+        AppManage.checkAppHealth(SplashActivity.this); //TODO : Cheking update and security
+
         super.onCreate(savedInstanceState);
         //------------------------------------------------------------------------------------> todo : Making Full Screen
 
@@ -49,17 +52,7 @@ public class SplashActivity extends AppCompatActivity {
         ImageView text = findViewById(R.id.image_title);
         typeWriterView = findViewById(R.id.titleTV);
         sloganTv = findViewById(R.id.sloganTv);
-        String key = "78EF5DA8A2DC67FD6BD1F81722B1CD32CE2EA487AF9" +
-                "1CFB249B1F5F57E9D610A407DDBCE57D629BC00C261DA04FDC067C27" +
-                "86C55D3802BF38A7A3E54900F95DACEBCADDD0F84FBF3BF6D466D2BCC6EC8C634F" +
-                "919026BDBDE2B3AE47D323ABACF";
-        if(MyFunc.getSP(SpKey.CONTACT_EMAIL,"")==""){
-            Toast.makeText(this, "Saving data", Toast.LENGTH_SHORT).show();
-            //Temp Creating data
-            String json = AppManage.exCreateData();
-            String dd = MyDS.dx(json,null);
-            new AppManage().svData(dd);
-        }
+
 
 
 
