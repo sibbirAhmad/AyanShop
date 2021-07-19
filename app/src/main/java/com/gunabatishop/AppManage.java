@@ -62,12 +62,14 @@ public class AppManage {
         }
 
     }
-    static int developedVersion = 1;
+    static int developedVersion = 2;
     public static boolean isAppOk = false;
     public static void checkAppHealth(Context context){
         int appVersion = BuildConfig.VERSION_CODE;
         //----- todo : Check scam update
         if(appVersion != developedVersion){
+            Log.e(TAG, "checkAppHealth: InvalidUpdate");
+            Toast.makeText(context, "Invalid update", Toast.LENGTH_SHORT).show();
             MyFunc.securityError(context,null,null);
             isAppOk = false;
         }else {
