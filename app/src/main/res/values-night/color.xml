@@ -6,7 +6,7 @@
     <color name="menu_item_text_color">#E8E1E1</color>
 
     <color name="toolbar_color">@android:color/transparent</color>
-    <color name="progress_tint">#F8F8CA</color>
+    <color name="progress_tint">#2A364C</color>
 
 
 

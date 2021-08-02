@@ -11,11 +11,29 @@ android:checkableBehavior="single">
     android:checked="true"
     android:icon="@drawable/ic_home_black_24dp"
     android:title="Home" />
-<item
-    android:id="@+id/menu_about"
-    android:actionLayout="@layout/mode_switch"
-    android:icon="@drawable/ic_info_black_24dp"
-    android:title="About us" />
+    <item
+        android:id="@+id/menu_my_cart"
+        android:checked="true"
+        android:icon="@drawable/ic_shopping_cart_black_24dp"
+        android:title="My Cart" />
+    <item
+        android:id="@+id/menu_my_whitelist"
+        android:checked="true"
+        android:icon="@drawable/ic_favorite_border_black_24dp"
+        android:title="My Wishlist" />
+    <item
+        android:id="@+id/menu_track_order"
+        android:checked="true"
+        android:icon="@drawable/ic_track_order"
+        android:title="Track  Order" />
+
+
+    <item
+        android:id="@+id/menu_about_us"
+        android:actionLayout="@layout/mode_switch"
+        android:icon="@drawable/ic_info_black_24dp"
+        android:title="Support Policy" />
+
 
 </group>
 
@@ -33,23 +51,32 @@ android:checkableBehavior="single">
                     android:icon="@drawable/ic_night_mode"
                     app:actionLayout="@layout/mode_switch"
                     android:title="Dark Mode" />
+        <item
+            android:id="@+id/menu_contact_info"
+            android:actionLayout="@layout/mode_switch"
+            android:icon="@drawable/ic_perm_device_information_black_24dp"
+            android:title="Contact Info" />
 
                 <item
                     android:id="@+id/menu_youtube"
+                    android:visible="false"
                     android:icon="@drawable/ic_youtube"
                     android:title="Watch on Youtube" />
                 <item
                     android:id="@+id/menu_fb_page"
                     android:icon="@drawable/ic_facebook"
+                    android:visible="false"
                     android:title="Visit our Facebook page" />
                 <item
                     android:id="@+id/menu_fb_group"
+                    android:visible="false"
                     android:icon="@drawable/ic_facebook_grp"
                     android:title="Join with our FB group" />
 
                 <item
                     android:id="@+id/menu_whatsapp"
                     android:icon="@drawable/ic_whatsapp"
+                    android:visible="false"
                     android:title="Contact on WhatsApp" />
                 <item
                     android:id="@+id/menu_feedback"
@@ -60,9 +87,10 @@ android:checkableBehavior="single">
                     android:icon="@drawable/ic_share_app"
                     android:title="Share App" />
                 <item
-                    android:id="@+id/menu_rating"
-                    android:icon="@drawable/ic_rating"
-                    android:title="Rate our App" />
+                    android:id="@+id/menu_developer_info"
+                    android:visible="true"
+                    android:icon="@drawable/ic_developer_mode_black_24dp"
+                    android:title="Developer" />
                 <item
                     android:id="@+id/menu_policy"
                     android:icon="@drawable/ic_policy"

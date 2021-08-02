@@ -13,36 +13,38 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.card.MaterialCardView
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="8dp"
             android:layout_margin="5dp"
-            app:cardElevation="5dp"
+            app:cardElevation="3dp"
             android:backgroundTint="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <RelativeLayout
                 android:id="@+id/aboutHeaderRL"
-                android:background="@drawable/ic_gunabati_banner"
                 android:gravity="center"
+                android:background="@drawable/ic_welcome_2"
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
                 <LinearLayout
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <TextView
-                        android:text="গুণবতী শপ"
+                        android:text="Ayan Online Shop"
+                        android:visibility="gone"
                         android:textColor="@color/menu_item_text_color"
-                        android:textSize="65sp"
+                        android:textSize="40dp"
+                        android:fontFamily="@font/double_bubble_shadow"
                         android:textStyle="bold"
-                        android:fontFamily="@font/kalpona_unicode"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
                     </TextView>
                     <TextView
                         android:text="একের ভিতর সব"
+                        android:visibility="gone"
                         android:textColor="@color/teal_500"
                         android:textStyle="bold"
                         android:fontFamily="@font/kalpona_unicode"
@@ -56,10 +58,12 @@
 
                     <in.codeshuffle.typewriterview.TypeWriterView
                         android:id="@+id/typeWriter"
-                        android:text="www.GunabatiShop.com"
+                        android:visibility="gone"
+                        android:text="http://ayanonlineshop.com"
                         android:textColor="@color/teal_800"
                         android:textSize="40sp"
-                        android:layout_marginTop="-10dp"
+                        android:fontFamily="@font/coockie_regular"
+                        android:layout_marginTop="-1dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
@@ -70,24 +74,27 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="5dp"
             android:layout_height="wrap_content">
 
             <TextView
+                android:visibility="visible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="আমাদের সম্পর্কেঃ"
-                android:fontFamily="@font/kalpona_unicode"
+                android:text="About Us"
+                android:textStyle="bold"
+                android:fontFamily="@font/kalpurush"
                 android:textColor="@color/menu_item_text_color"
-                android:textSize="24dp"
-                android:layout_marginLeft="20dp">
+                android:textSize="20dp"
+                android:layout_marginLeft="25dp">
 
             </TextView>
             <TextView
                 android:text="@string/about_us"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
                 android:textSize="17sp"
                 android:textColor="@color/menu_item_text_color"
                 android:fontFamily="@font/kalpurush"
@@ -101,7 +108,24 @@
 
     </LinearLayout>
     <LinearLayout
+        android:layout_above="@+id/bottomViewLL"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/appVersionTV"
+            android:text="App Version : 1"
+            android:gravity="center"
+            android:textColor="@color/menu_item_text_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
         android:weightSum="3"
+        android:id="@+id/bottomViewLL"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="5dp"

@@ -5,7 +5,31 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".BrowserFragment">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/app_name"
+            app:titleTextColor="@color/grey_200"
+            app:navigationIcon="@drawable/ic_menu_black_24dp"
+            app:navigationIconTint="@color/grey_200"
+            style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
+            android:background="@color/toolbar_color"
+            android:elevation="0dp" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <RelativeLayout
+        android:layout_below="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 <!--        TODO : WebView-->
